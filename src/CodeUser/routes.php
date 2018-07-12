@@ -3,9 +3,9 @@
 Route::name('admin.')
         ->prefix('admin/')
         ->middleware('web')
-        ->namespace('CodePress\CodeTag\Controllers')
+        ->namespace('CodePress\CodeUser\Controllers')
         ->group(function () {
             Route::resources([
-                'tags' => 'AdminTagsController'
+                'users' => 'AdminUsersController'
             ]);
         });
