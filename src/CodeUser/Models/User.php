@@ -9,6 +9,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'codepress_users';
     /**
      * The attributes that are mass assignable.
      *
