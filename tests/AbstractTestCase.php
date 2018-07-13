@@ -3,6 +3,8 @@
 namespace CodePress\CodeUser\Tests;
 
 use Orchestra\Testbench\TestCase;
+use Illuminate\Auth\AuthServiceProvider;
+use Illuminate\Auth\Passwords\PasswordResetServiceProvider;
 
 /**
  * Description of AbstractTestCase
@@ -17,6 +19,14 @@ abstract class AbstractTestCase extends TestCase
         $this->loadMigrationsFrom(__DIR__ . '/../src/resources/migrations');
     }
 
+    public function getPackageProviders($app)
+    {
+        return  [
+            AuthServiceProvider::class,
+            PasswordResetServiceProvider::class,
+        ];
+    }
+    
     /**
      * Define environment setup.
      *
@@ -32,6 +42,8 @@ abstract class AbstractTestCase extends TestCase
             'database' => ':memory:',
             'prefix' => '',
         ]);
+        
+        config(['auth' => require __DIR__ . '/../src/config/auth.php']);
     }
 
 }
