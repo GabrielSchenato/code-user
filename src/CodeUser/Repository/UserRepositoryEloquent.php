@@ -4,6 +4,7 @@ namespace CodePress\CodeUser\Repository;
 
 use CodePress\CodeDatabase\AbstractRepository;
 use CodePress\CodeUser\Models\User;
+use CodePress\CodeUser\Event\UserCreatedEvent;
 
 /**
  * Description of UserRepositoryEloquent
@@ -18,6 +19,7 @@ class UserRepositoryEloquent extends AbstractRepository implements UserRepositor
         $password = $data['password'];
         $data['password'] = bcrypt($password);
         $result = parent::create($data);
+        event(new UserCreatedEvent($result, $password));
         return $result;
     }
 
