@@ -6,6 +6,6 @@ Route::name('admin.')
         ->namespace('CodePress\CodeUser\Controllers')
         ->group(function () {
             Route::resources([
-                'users' => 'AdminUsersController'
+                'users' => 'UsersController'
             ]);
         });
