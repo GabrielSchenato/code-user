@@ -13,5 +13,8 @@ use CodePress\CodeUser\Event\UserCreatedEvent;
 class EmailCreatedAccountListener
 {
 
-    public function handle(UserCreatedEvent $event);
+    public function handle(UserCreatedEvent $event)
+    {
+        
+    }
 }
