@@ -55,6 +55,7 @@ class EmailCreatedAccountListenerTest extends AbstractTestCase
                     $mockMessage->shouldReceive('subject')
                             ->with("{$mockUser->name}, sua conta foi criada!");
                     $closure($mockMessage);
+                    return true;
                 }))
                 ->andReturn(1);
                 
@@ -62,5 +63,6 @@ class EmailCreatedAccountListenerTest extends AbstractTestCase
         $result = $listener->handle($event);
         $this->assertEquals(1, $result);
     }
+   
 
 }
