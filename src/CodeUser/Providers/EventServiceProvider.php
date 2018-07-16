@@ -13,7 +13,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [];
-
+    protected $subscribe = [
+        \CodePress\CodeUser\Listener\TestEventListener::class
+    ];
     /**
      * Register any events for your application.
      *
@@ -22,9 +24,5 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
-        Event::listen('event.codepress', function (){
-            echo 'event.codepress está funcionando';            
-        });
     }
 }
