@@ -3,6 +3,7 @@
 namespace CodePress\CodeUser\Tests;
 
 use CodePress\CodeUser\Repository\UserRepositoryEloquent;
+use CodePress\CodeUser\Event\UserCreatedEvent;
 use CodePress\CodeUser\Tests\AbstractTestCase;
 use Illuminate\Support\Facades\Hash;
 use Mockery as m;
@@ -26,6 +27,7 @@ class UserRepositoryTest extends AbstractTestCase
     
     public function test_can_create_user()
     {
+        $this->expectsEvents(UserCreatedEvent::class);
         $user = $this->repository->create([
            'name' => 'Teste',
             'email' => 'teste@teste.com',
