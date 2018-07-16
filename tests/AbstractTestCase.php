@@ -3,6 +3,7 @@
 namespace CodePress\CodeUser\Tests;
 
 use Orchestra\Testbench\TestCase;
+use CodePress\CodeUser\Providers\CodeUserServiceProvider;
 use Illuminate\Auth\AuthServiceProvider;
 use Illuminate\Auth\Passwords\PasswordResetServiceProvider;
 
@@ -24,6 +25,7 @@ abstract class AbstractTestCase extends TestCase
         return  [
             AuthServiceProvider::class,
             PasswordResetServiceProvider::class,
+            CodeUserServiceProvider::class
         ];
     }
     
