@@ -2,6 +2,7 @@
 
 namespace CodePress\CodeUser\Tests;
 
+require __DIR__ . '/AbstractTestCase.php';
 
 use Illuminate\Mail\MailServiceProvider;
 
