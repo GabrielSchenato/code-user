@@ -2,9 +2,8 @@
 
 namespace CodePress\CodeUser\Tests;
 
-use CodePress\CodeUser\Providers\CodeUserServiceProvider;
-use Illuminate\Auth\AuthServiceProvider;
-use Illuminate\Auth\Passwords\PasswordResetServiceProvider;
+
+use Illuminate\Mail\MailServiceProvider;
 
 /**
  * Description of AbstractMailTestCase
@@ -48,10 +47,9 @@ abstract class AbstractMailTestCase extends AbstractTestCase
 
     public function getPackageProviders($app)
     {
-        return [
-            AuthServiceProvider::class,
-            PasswordResetServiceProvider::class,
-            CodeUserServiceProvider::class
+        $array = parent::getPackageProviders($app);
+        return $array + [
+            MailServiceProvider::class
         ];
     }
 
