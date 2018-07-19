@@ -13,13 +13,13 @@
                     </div>
                     @endif
 
-                    <h4>Create Role</h4>
-                    {!! Form::open(['route' => 'admin.roles.store', 'method' => 'post']) !!}
+                    <h4>Create User</h4>
+                    {!! Form::open(['route' => 'admin.users.store', 'method' => 'post']) !!}
 
-                    @include('codeuser::role._form')
+                    @include('codeuser::create.user._form')
 
                     <div class="form-group">
-                        {!! Form::submit('Create role', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
+                        {!! Form::submit('Create user', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
                     </div>
 
                     {!! Form::close() !!}

@@ -1,16 +1,17 @@
 <?php
 
-namespace CodePress\CodeUser\Controllers;
+namespace CodePress\CodeUser\Controllers\Admin;
 
+use CodePress\CodeUser\Controllers\Controller;
 use CodePress\CodeUser\Repository\PermissionRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 
 /**
- * Description of PermissionController
+ * Description of PermissionsController
  *
  * @author gabriel
  */
-class PermissionController extends Controller
+class PermissionsController extends Controller
 {
 
     private $response;

@@ -1,7 +1,8 @@
 <?php
 
-namespace CodePress\CodeUser\Controllers;
+namespace CodePress\CodeUser\Controllers\Admin;
 
+use CodePress\CodeUser\Controllers\Controller;
 use CodePress\CodeUser\Repository\UserRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
@@ -26,18 +27,18 @@ class UsersController extends Controller
     public function index()
     {
         $users = $this->repository->all();
-        return $this->response->view('codeuser::user.index', compact('users'));
+        return $this->response->view('codeuser::admin.user.index', compact('users'));
     }
     
     public function show(int $id)
     {
         $user = $this->repository->find($id);
-        return $this->response->view('codeuser::user.show', compact('user'));
+        return $this->response->view('codeuser::admin.user.show', compact('user'));
     }
     
     public function create()
     {
-        return $this->response->view('codeuser::user.create');
+        return $this->response->view('codeuser::admin.user.create');
     }
     
     public function store(Request $request)
@@ -50,7 +51,7 @@ class UsersController extends Controller
     public function edit(int $id)
     {
         $user = $this->repository->find($id);
-        return $this->response->view('codeuser::user.edit', compact('user'));
+        return $this->response->view('codeuser::admin.user.edit', compact('user'));
     }
     
     public function update(int $id, Request $request)

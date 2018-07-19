@@ -1,7 +1,8 @@
 <?php
 
-namespace CodePress\CodeUser\Controllers;
+namespace CodePress\CodeUser\Controllers\Admin;
 
+use CodePress\CodeUser\Controllers\Controller;
 use CodePress\CodeUser\Repository\RoleRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
@@ -50,7 +51,7 @@ class RolesController extends Controller
     public function edit(int $id)
     {
         $role = $this->repository->find($id);
-        return $this->response->view('codeuser::admin.role.edit', compact('roles'));
+        return $this->response->view('codeuser::admin.role.edit', compact('role'));
     }
 
     public function update(int $id, Request $request)

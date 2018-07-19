@@ -13,13 +13,13 @@
                     </div>
                     @endif
 
-                    <h4>Edit Role {{ $role->name }}</h4>
-                    {!! Form::model($role, ['route' => ['admin.roles.update', $role->id], 'method' => 'put']) !!}
+                    <h4>Create Role</h4>
+                    {!! Form::open(['route' => 'admin.roles.store', 'method' => 'post']) !!}
 
-                    @include('codeuser::role._form')
+                    @include('codeuser::admin.role._form')
 
                     <div class="form-group">
-                        {!! Form::submit('Edit Role', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
+                        {!! Form::submit('Create role', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
                     </div>
 
                     {!! Form::close() !!}
