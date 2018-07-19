@@ -13,13 +13,13 @@
                     </div>
                     @endif
 
-                    <h4>Edit User {{ $user->name }}</h4>
-                    {!! Form::model($user, ['route' => ['admin.users.update', $user->id], 'method' => 'put']) !!}
+                    <h4>Create User</h4>
+                    {!! Form::open(['route' => 'admin.users.store', 'method' => 'post']) !!}
 
-                    @include('codeuser::_form')
+                    @include('codeuser::user._form')
 
                     <div class="form-group">
-                        {!! Form::submit('Edit User', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
+                        {!! Form::submit('Create user', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
                     </div>
 
                     {!! Form::close() !!}

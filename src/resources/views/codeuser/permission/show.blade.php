@@ -13,16 +13,17 @@
                     </div>
                     @endif
 
-                    <h4>Create User</h4>
-                    {!! Form::open(['route' => 'admin.users.store', 'method' => 'post']) !!}
+                    <h4>Permission - {{ $permission->name }}</h4>
 
-                    @include('codeuser::_form')
+                    <ul class="list-unstyled">
+                        <li>
+                            <strong>Name:</strong> {{ $permission->name }}
+                        </li>
+                        <li>
+                            <strong>Description:</strong> {{ $permission->description }}
+                        </li>
+                    </ul>
 
-                    <div class="form-group">
-                        {!! Form::submit('Create user', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
-                    </div>
-
-                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
