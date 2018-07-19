@@ -12,4 +12,5 @@ use CodePress\CodeDatabase\Contracts\CriteriaCollectionInterface;
  */
 interface PermissionRepositoryInterface extends RepositoryInterface, CriteriaCollectionInterface
 {
+    public function pluck($column, $key = null);
 }
