@@ -12,4 +12,5 @@ use CodePress\CodeDatabase\Contracts\CriteriaCollectionInterface;
  */
 interface RoleRepositoryInterface extends RepositoryInterface, CriteriaCollectionInterface
 {
+    public function addPermissions(int $id, array $permissions);
 }
