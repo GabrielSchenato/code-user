@@ -25,14 +25,21 @@ class PermissionsController extends Controller
 
     public function index()
     {
+        $this->auth();
         $permissions = $this->repository->all();
         return $this->response->view('codeuser::admin.permission.index', compact('permissions'));
     }
 
     public function show(int $id)
     {
+        $this->auth();
         $permission = $this->repository->find($id);
         return $this->response->view('codeuser::admin.permission.show', compact('permission'));
+    }
+    
+    private function auth()
+    {
+        $this->authorize('access_users');
     }
 
 }

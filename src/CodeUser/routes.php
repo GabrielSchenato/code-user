@@ -2,7 +2,7 @@
 
 Route::name('admin.')
         ->prefix('admin/')
-        ->middleware('web')
+        ->middleware('web', 'auth')
         ->namespace('CodePress\CodeUser\Controllers\Admin')
         ->group(function () {
             Route::resources(['users' => 'UsersController']);

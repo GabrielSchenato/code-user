@@ -22,7 +22,7 @@ class AuthServiceProvider extends ServiceProvider
             $permissionRepository = app(PermissionRepositoryInterface::class);
             $permissions = $permissionRepository->all();
             foreach ($permissions as $p) {
-                Gate::define($p->name, function ($user) use ($p) {
+                Gate::define($p->name, function($user) use($p){
                     return $user->isAdmin() || $user->hasRole($p->roles);
                 });
             }
