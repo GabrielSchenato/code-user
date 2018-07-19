@@ -16,7 +16,22 @@
                     <h4>Create User</h4>
                     {!! Form::open(['route' => 'admin.users.store', 'method' => 'post']) !!}
 
-                    @include('codeuser::create.user._form')
+                    <div class="form-group">
+                        {!! Form::label('name', 'Name:') !!}
+                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('email', 'E-mail:') !!}
+                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('password', 'Password:') !!}
+                        {!! Form::password('password', ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('roles[]', 'Roles') !!}
+                        {!! Form::select('roles[]', $roles, null, ['class' => 'form-control', 'multiple' => 'multiple']) !!}
+                    </div>
 
                     <div class="form-group">
                         {!! Form::submit('Create user', ['class' => 'btn btn-primary btn-lg btn-block']) !!}

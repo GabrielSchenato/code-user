@@ -4,6 +4,7 @@ namespace CodePress\CodeUser\Controllers\Admin;
 
 use CodePress\CodeUser\Controllers\Controller;
 use CodePress\CodeUser\Repository\UserRepositoryInterface;
+use CodePress\CodeUser\Repository\RoleRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 
@@ -17,10 +18,12 @@ class UsersController extends Controller
 
     private $response;
     private $repository;
+    private $roleRepository;
     
-    public function __construct(ResponseFactory $response, UserRepositoryInterface $repository)
+    public function __construct(ResponseFactory $response, UserRepositoryInterface $repository, RoleRepositoryInterface $roleRepository)
     {
         $this->repository = $repository;
+        $this->roleRepository = $roleRepository;
         $this->response = $response;
     }
     
@@ -38,26 +41,33 @@ class UsersController extends Controller
     
     public function create()
     {
-        return $this->response->view('codeuser::admin.user.create');
+        $roles = $this->roleRepository->pluck('name', 'id');
+        return $this->response->view('codeuser::admin.user.create', compact('roles'));
     }
     
     public function store(Request $request)
     {
-        $this->repository->create($request->all());
-        
+        $user = $this->repository->create($request->all());
+        $this->repository->addRoles($user->id, $request->get('roles'));
         return redirect()->route('admin.users.index');
     }
     
     public function edit(int $id)
     {
+        $roles = $this->roleRepository->pluck('name', 'id');
         $user = $this->repository->find($id);
-        return $this->response->view('codeuser::admin.user.edit', compact('user'));
+        return $this->response->view('codeuser::admin.user.edit', compact('user', 'roles'));
     }
     
     public function update(int $id, Request $request)
     {
-        $this->repository->update($request->all(), $id);
-        
+        $data = $request->all();
+        if(isset($data['password']))
+        {
+            unset($data['password']);
+        }
+        $user = $this->repository->update($data, $id);
+        $this->repository->addRoles($user->id, $request->get('roles'));
         return redirect()->route('admin.users.index');
     }
     
