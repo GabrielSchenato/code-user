@@ -29,28 +29,24 @@ class RolesController extends Controller
 
     public function index()
     {
-        $this->auth();
         $roles = $this->repository->all();
         return $this->response->view('codeuser::admin.role.index', compact('roles'));
     }
 
     public function show(int $id)
     {
-        $this->auth();
         $role = $this->repository->find($id);
         return $this->response->view('codeuser::admin.role.show', compact('role'));
     }
 
     public function create()
     {
-        $this->auth();
         $permissions = $this->permissionRepository->pluck('name', 'id');
         return $this->response->view('codeuser::admin.role.create', compact('permissions'));
     }
 
     public function store(Request $request)
     {
-        $this->auth();
         $role = $this->repository->create($request->all());
         $this->repository->addPermissions($role->id, $request->get('permissions'));
         return redirect()->route('admin.roles.index');
@@ -58,7 +54,6 @@ class RolesController extends Controller
 
     public function edit(int $id)
     {
-        $this->auth();
         $role = $this->repository->find($id);
         $permissions = $this->permissionRepository->pluck('name', 'id');
         return $this->response->view('codeuser::admin.role.edit', compact('role', 'permissions'));
@@ -66,15 +61,10 @@ class RolesController extends Controller
 
     public function update(int $id, Request $request)
     {
-        $this->auth();
         $role = $this->repository->update($request->all(), $id);
         $this->repository->addPermissions($role->id, $request->get('permissions'));
         return redirect()->route('admin.roles.index');
     }
-    
-    private function auth()
-    {
-        $this->authorize('access_users');
-    }
+
 
 }
