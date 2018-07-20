@@ -18,7 +18,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        if (!app()->runningInConsole()) {
+        if (!app()->runningInConsole() || app()->runningUnitTests()) {
             $permissionRepository = app(PermissionRepositoryInterface::class);
             $permissions = $permissionRepository->all();
             foreach ($permissions as $p) {

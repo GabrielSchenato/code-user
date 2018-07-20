@@ -17,7 +17,7 @@ class CreateUsers extends Migration
         
         $admin = User::create([
             'name' => 'Administrador',
-            'email' => 'admin@codepress',
+            'email' => 'admin@codepress.com',
             'password' => bcrypt(123456)
         ]);
         
