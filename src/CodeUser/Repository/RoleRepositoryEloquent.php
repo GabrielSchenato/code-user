@@ -29,6 +29,7 @@ class RoleRepositoryEloquent extends AbstractRepository implements RoleRepositor
     public function addPermissions(int $id, array $permissions)
     {
         $model = $this->find($id);
+        $model->permissions()->detach();
         foreach ($permissions as $v) {
             $model->permissions()->save($this->permissionRepository->find($v));
         }
