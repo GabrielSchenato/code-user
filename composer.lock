@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad035dbd572b35b5b93d4dcaec522f19",
+    "content-hash": "96e7a034c130265e7b29009d6e31c738",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1133,16 +1133,16 @@
         },
         {
             "name": "schenato/code-database",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schenato/code-database.git",
-                "reference": "31331239ac991878a794815a4fe6bb22a20e124f"
+                "reference": "2d87c811d6172c9969ca1a25a3805ccd0c359232"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schenato/code-database/zipball/31331239ac991878a794815a4fe6bb22a20e124f",
-                "reference": "31331239ac991878a794815a4fe6bb22a20e124f",
+                "url": "https://api.github.com/repos/schenato/code-database/zipball/2d87c811d6172c9969ca1a25a3805ccd0c359232",
+                "reference": "2d87c811d6172c9969ca1a25a3805ccd0c359232",
                 "shasum": ""
             },
             "require": {
@@ -1178,7 +1178,7 @@
                 "laravel",
                 "repository"
             ],
-            "time": "2018-07-24T18:52:59+00:00"
+            "time": "2018-07-24T19:05:09+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3895,9 +3895,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "schenato/code-database": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
