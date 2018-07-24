@@ -41,7 +41,7 @@ class AuthorizationRepositoryTest extends AbstractTestCase
         $this->createRoles();
         $this->assertCount(6, $this->app->make(RoleRepositoryInterface::class)->all());
         $this->app->make(UserRepositoryInterface::class)->addRoles(2, [4, 5, 6]);
-        $this->assertCount(3, User::find(2)->roles);
+        $this->assertCount(4, User::find(2)->roles);
         $this->assertCount(1, Role::find(4)->users);
         $this->assertTrue(User::find(2)->isAdmin());
     }
